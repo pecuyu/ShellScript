@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# desc		this is to show your nage and age
+# desc		this shell script is to ... 
 # author 	pecuyu
 # date 		2017.8.15
 # version	1.0
