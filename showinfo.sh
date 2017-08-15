@@ -8,5 +8,5 @@ read -p "please enter your name:" name
 read -p "please enter your age:" age
 echo "your name is ${name},your age is ${age}"
 
-exit 0
+#exit 0
 
