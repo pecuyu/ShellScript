@@ -1,0 +1,28 @@
+source,sh script, ./script
+
+1.利用直接执行的方式来执行script (sh script, ./script)
+
+直接指令下达  (不论是绝对路径/相对路径还是  ${PATH}  内)，或者是利用bash (或  sh)  来下达脚本时， 
+该 script  都会使用一个新的 bash 环境来执行脚本内的指令！
+使用sh script执行，不需要该脚本有执行权限
+
+2.利用source(或 . )来执行脚本：在父程序中执行
+
+因为source对script的执行会在父程序中执行，因此各项动作都会在原本的bash内生效！这也是为啥你不注销系统而要让某
+些写入 ~/.bashrc 的设定生效时，需要使用『  source ~/.bashrc  』而不能使用『  bash ~/.bashrc  』是一样.
+
+ckt@ckt:~/test/shell_script$ source ./showinfo.sh 
+please enter your name:yu
+please enter your age:18
+your name is yu,your age is 18
+ckt@ckt:~/test/shell_script$ echo ${name}
+yu
+ckt@ckt:~/test/shell_script$ echo ${age}
+18
+ckt@ckt:~/test/shell_script$ . showinfo.sh 
+please enter your name:pecuyu
+please enter your age:18
+your name is pecuyu,your age is 18
+ckt@ckt:~/test/shell_script$ echo ${name}
+pecuyu
+
